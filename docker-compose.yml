@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  nginx:
+    restart: 'no'
+    build:
+      context: .
+      dockerfile: etc/docker/dev/nginx/Dockerfile
+    container_name: witrac-backend-test-nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/app:delegated
+    depends_on:
+      - fpm
+
+  fpm:
+    restart: 'no'
+    container_name: witrac-backend-test-fpm
+    build:
+      context: .
+      dockerfile: etc/docker/dev/php/Dockerfile
+    ports:
+      - "2222:22"
+      - "9090:9000"
+    volumes:
+      - .:/app:delegated
+    env_file:
+      - .env

@@ -1,0 +1,6 @@
+sensio_framework_extra:
+    router:      { annotations: false } # Deprecated; use routing annotations of Symfony core instead
+    request:     { converters: true, auto_convert: true }
+    view:        { annotations: false }
+    cache:       { annotations: false }
+    security:    { annotations: false }

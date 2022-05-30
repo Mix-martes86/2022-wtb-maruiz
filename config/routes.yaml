@@ -1,0 +1,13 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+create-canvas:
+  path: /create-canvas
+  controller: App\CanvasContext\Presentation\Controller\CreateCanvasController::postCreateCanvas
+  methods:    POST
+
+move:
+  path: /move/{canvasName}/{movementDirection}
+  controller: App\CanvasContext\Presentation\Controller\MoveSpaceshipController::patchMove
+  methods:    PATCH
